@@ -12,7 +12,7 @@ Jump to the **"how to"** section -
 
 The "join" function determines how CSS URIs are combined with one of the possible base paths the algorithm has identified.
 
-⚠️ **IMPORTANT** - First read how the [algorithm](./how-it-works.md#algorithm) works.
+⚠️ **IMPORTANT** - First read how the [algorithm](how-it-works.md#algorithm) works.
 
 The "join" function is a higher-order function created using the `options` and `loader` reference. That gives a function that accepts a single `item` and synchronously returns an absolute asset path to substitute back into the original CSS.
 
@@ -22,7 +22,7 @@ The "join" function is a higher-order function created using the `options` and `
     string | null
 ```
 
-Where the `bases` are absolute directory paths `{ subString, value, property, selector }` per the [algorithm](./how-it-works.md#algorithm). Note that returning `null` implies no substitution, the original relative `uri` is retained.
+Where the `bases` are absolute directory paths `{ subString, value, property, selector }` per the [algorithm](how-it-works.md#algorithm). Note that returning `null` implies no substitution, the original relative `uri` is retained.
 
 The job of the "join" function is to consider possible locations for the asset based on the `bases` and determine which is most appropriate. This implies some order of precedence in these locations and some file-system operation to determine if the asset there.
 
@@ -70,7 +70,7 @@ Don't worry, you don't need to use `function*` semantics for the `generator` unl
 
 ## Simple customisation
 
-It is relatively simple to change the precedence of values (from the [algorithm](./how-it-works.md#algorithm)) or add further locations to search for an asset. To do this we use `createJoinImplementation` and write a custom `generator`.
+It is relatively simple to change the precedence of values (from the [algorithm](how-it-works.md#algorithm)) or add further locations to search for an asset. To do this we use `createJoinImplementation` and write a custom `generator`.
 
 See the reference or jump directly to the [examples](#how-to-change-precedence-of-source-locations).
 
@@ -101,7 +101,7 @@ When using `asGenerator` you may return elements as either `base:string` **or** 
   * `uri: string` is the argument to the `url()` as it appears in the source file.
   * `query: string` is any query or hash string starting with `?` or `#` that suffixes the `uri`
   * `isAbsolute: boolean` flag indicates whether the URI is considered an absolute file or root relative path by webpack's definition. Absolute URIs are only processed if the `root` option is specified.
-  * `bases: {}` are a hash where the keys are the sourcemap evaluation locations in the [algorithm](./how-it-works.md#algorithm) and the values are absolute paths that the sourcemap reports. These directories might not actually exist.
+  * `bases: {}` are a hash where the keys are the sourcemap evaluation locations in the [algorithm](how-it-works.md#algorithm) and the values are absolute paths that the sourcemap reports. These directories might not actually exist.
 * `options` consist of -
    * All documented options for the loader.
    * Any other values you include in the loader configuration for your own purposes.
@@ -149,7 +149,7 @@ When using `asGenerator` you may return elements as either `base:string` **or** 
 
 ### How to: change precedence of source locations
 
-Source-map sampling is limited to the locations defined in the [algorithm](./how-it-works.md#algorithm). You can't change these locations but you can preference them in a different order.
+Source-map sampling is limited to the locations defined in the [algorithm](how-it-works.md#algorithm). You can't change these locations but you can preference them in a different order.
 
 This example shows the default order which you can easily amend. Absolute URIs are rare in most projects but can be handled for completeness.
 
@@ -381,7 +381,7 @@ implementation = function (item: {}, options: {}, loader: {}):
   * `uri: string` is the argument to the `url()` as it appears in the source file.
   * `query: string` is any string starting with `?` or `#` that suffixes the `uri`
   * `isAbsolute: boolean` flag indicates whether the URI is considered an absolute file or root relative path by webpack's definition. Absolute URIs are only processed if the `root` option is specified.
-  * `bases: {}` are a hash where the keys are the sourcemap evaluation locations in the [algorithm](./how-it-works.md#algorithm) and the values are absolute paths that the sourcemap reports. These directories might not actually exist.
+  * `bases: {}` are a hash where the keys are the sourcemap evaluation locations in the [algorithm](how-it-works.md#algorithm) and the values are absolute paths that the sourcemap reports. These directories might not actually exist.
 * `options` consist of -
   * All documented options for the loader.
   * Any other values you include in the loader configuration for your own purposes.

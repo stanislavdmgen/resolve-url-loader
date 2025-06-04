@@ -1,44 +1,44 @@
 {
   "name": "resolve-url-loader",
-  "description": "monorepo of all things resolve-url-loader",
-  "private": true,
+  "version": "5.0.0",
+  "description": "Webpack loader that resolves relative paths in url() statements based on the original source file",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bholloway/resolve-url-loader.git",
+    "directory": "packages/resolve-url-loader"
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "css",
+    "normalize",
+    "rewrite",
+    "resolve",
+    "url",
+    "sass",
+    "relative",
+    "file"
+  ],
   "author": "bholloway",
   "license": "MIT",
-  "main": "packages/resolve-url-loader",
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "lint": "jshint packages --exclude **/node_modules",
-    "test:unit": "tape \"!(node_modules)/**/*.test.js\" | tap-diff",
-    "debug:unit": "node $NODE_DEBUG_OPTION $(npm bin)/tape \"!(node_modules)/**/*.test.js\" | tap-diff",
-    "test:e2e": "tape test | tap-diff",
-    "debug:e2e": "node $NODE_DEBUG_OPTION $(npm bin)/tape test | tap-diff"
+  "bugs": {
+    "url": "https://github.com/bholloway/resolve-url-loader/issues"
   },
-  "devDependencies": {
-    "blue-tape": "^1.0.0",
-    "compose-function": "^3.0.3",
-    "cross-env": "^7.0.3",
-    "enforce-node-version": "^0.1.0",
-    "es6-promisify": "^6.0.2",
-    "escape-string-regexp": "^4.0.0",
-    "get-value": "^3.0.1",
-    "has-prop": "^0.1.2",
-    "joi": "^14.3.1",
-    "jshint": "^2.10.3",
-    "micromatch": "^4.0.4",
-    "ms": "^2.1.3",
-    "outdent": "^0.8.0",
-    "promise-compose": "^1.1.2",
-    "recursive-readdir": "^2.2.2",
-    "sinon": "^10.0.0",
-    "tap-diff": "^0.1.1",
-    "vlq": "^1.0.1"
-  },
+  "homepage": "https://github.com/bholloway/resolve-url-loader/tree/v5/packages/resolve-url-loader",
   "engines": {
     "node": ">=12"
   },
-  "resolutions": {
-    "diff": "^4.0.2"
+  "files": [
+    "index.js",
+    "lib/**/+([a-z-]).js",
+    "docs/**/*.*"
+  ],
+  "dependencies": {
+    "adjust-sourcemap-loader": "^5.0.0",
+    "convert-source-map": "^1.7.0",
+    "loader-utils": "^3.3.1",
+    "postcss": "^8.2.14",
+    "source-map": "0.6.1"
   }
 }
